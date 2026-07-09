@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tasks - TMS</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+    <div id="toast-container"></div>
+    <div class="layout">
+        <aside class="sidebar">
+            <div class="sidebar-brand">TMS</div>
+            <nav class="sidebar-nav">
+                <a href="dashboard.html">Dashboard</a>
+                <a href="tasks.html" class="active">Tasks</a>
+                <a href="employees.html" id="nav-employees" style="display:none;">Employees</a>
+                <a href="#" id="logout-btn">Logout</a>
+            </nav>
+        </aside>
+        
+        <main class="main-content fade-in">
+            <header class="topbar">
+                <h2>Task Board</h2>
+                <button class="btn-primary" id="open-task-modal" style="display:none;">+ New Task</button>
+            </header>
+            
+            <div class="filters">
+                <select id="filter-status">
+                    <option value="">All Statuses</option>
+                    <option value="Pending">Pending</option>
+                    <option value="In Progress">In Progress</option>
+                    <option value="Completed">Completed</option>
+                    <option value="Overdue">Overdue</option>
+                </select>
+                <select id="filter-assignee" style="display:none;">
+                    <option value="">All Employees</option>
+                </select>
+                <button class="btn-secondary" id="apply-filters">Filter</button>
+            </div>
+            
+            <div class="task-grid" id="task-list">
+                <!-- Task cards will be injected here -->
+                <p>Loading tasks...</p>
+            </div>
+        </main>
+    </div>
+
+    <!-- Create Task Modal -->
+    <div class="modal-overlay" id="task-modal">
+        <div class="modal slide-up">
+            <div class="modal-header">
+                <h3 id="modal-title">Create Task</h3>
+                <span class="close-btn" id="close-task-modal">&times;</span>
+            </div>
+            <div class="modal-body">
+                <form id="task-form">
+                    <div class="form-group">
+                        <label for="task-title">Title</label>
+                        <input type="text" id="task-title" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="task-desc">Description</label>
+                        <textarea id="task-desc"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="task-assignee">Assign To</label>
+                        <select id="task-assignee" required></select>
+                    </div>
+                    <div class="form-group">
+                        <label for="task-priority">Priority</label>
+                        <select id="task-priority">
+                            <option value="Low">Low</option>
+                            <option value="Medium" selected>Medium</option>
+                            <option value="High">High</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="task-due">Due Date</label>
+                        <input type="date" id="task-due">
+                    </div>
+                    <button type="submit" class="btn-primary" id="save-task-btn">Save Task</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    
+    <script src="js/api.js"></script>
+    <script src="js/tasks.js"></script>
+</body>
+</html>

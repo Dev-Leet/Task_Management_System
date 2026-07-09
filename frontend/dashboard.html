@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - TMS</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+    <div id="toast-container"></div>
+    <div class="layout">
+        <aside class="sidebar">
+            <div class="sidebar-brand">TMS</div>
+            <nav class="sidebar-nav">
+                <a href="dashboard.html" class="active">Dashboard</a>
+                <a href="tasks.html">Tasks</a>
+                <a href="employees.html" id="nav-employees" style="display:none;">Employees</a>
+                <a href="#" id="logout-btn">Logout</a>
+            </nav>
+        </aside>
+        
+        <main class="main-content fade-in">
+            <header class="topbar">
+                <h2>Dashboard Overview</h2>
+                <div class="user-profile">
+                    <span id="current-user-name">Loading...</span>
+                </div>
+            </header>
+            
+            <div class="summary-cards">
+                <div class="card summary-card">
+                    <h3>Total Tasks</h3>
+                    <p class="stat" id="stat-total">0</p>
+                </div>
+                <div class="card summary-card success">
+                    <h3>Completed</h3>
+                    <p class="stat" id="stat-completed">0</p>
+                </div>
+                <div class="card summary-card warning">
+                    <h3>In Progress</h3>
+                    <p class="stat" id="stat-inprogress">0</p>
+                </div>
+                <div class="card summary-card pending">
+                    <h3>Pending</h3>
+                    <p class="stat" id="stat-pending">0</p>
+                </div>
+                <div class="card summary-card danger">
+                    <h3>Overdue</h3>
+                    <p class="stat" id="stat-overdue">0</p>
+                </div>
+            </div>
+            
+            <div class="dashboard-widgets">
+                <div class="card recent-tasks-widget">
+                    <h3>Recent Tasks</h3>
+                    <div id="recent-tasks-list">Loading...</div>
+                </div>
+            </div>
+        </main>
+    </div>
+    
+    <script src="js/api.js"></script>
+    <script src="js/dashboard.js"></script>
+</body>
+</html>

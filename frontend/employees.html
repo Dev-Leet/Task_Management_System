@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employees - TMS</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+    <div id="toast-container"></div>
+    <div class="layout">
+        <aside class="sidebar">
+            <div class="sidebar-brand">TMS</div>
+            <nav class="sidebar-nav">
+                <a href="dashboard.html">Dashboard</a>
+                <a href="tasks.html">Tasks</a>
+                <a href="employees.html" class="active" id="nav-employees">Employees</a>
+                <a href="#" id="logout-btn">Logout</a>
+            </nav>
+        </aside>
+        
+        <main class="main-content fade-in">
+            <header class="topbar">
+                <h2>Employees</h2>
+                <button class="btn-primary" id="open-employee-modal">+ Add Employee</button>
+            </header>
+            
+            <div class="table-container card">
+                <table id="employee-table">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th>Department</th>
+                            <th>Designation</th>
+                            <th>Status</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="employee-list">
+                        <!-- Employee rows -->
+                    </tbody>
+                </table>
+            </div>
+        </main>
+    </div>
+
+    <!-- Create Employee Modal -->
+    <div class="modal-overlay" id="employee-modal">
+        <div class="modal slide-up">
+            <div class="modal-header">
+                <h3>Add Employee</h3>
+                <span class="close-btn" id="close-employee-modal">&times;</span>
+            </div>
+            <div class="modal-body">
+                <form id="employee-form">
+                    <div class="form-group">
+                        <label for="emp-name">Full Name</label>
+                        <input type="text" id="emp-name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="emp-username">Username</label>
+                        <input type="text" id="emp-username" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="emp-email">Email</label>
+                        <input type="email" id="emp-email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="emp-password">Password</label>
+                        <input type="password" id="emp-password" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="emp-dept">Department</label>
+                        <input type="text" id="emp-dept">
+                    </div>
+                    <div class="form-group">
+                        <label for="emp-desig">Designation</label>
+                        <input type="text" id="emp-desig">
+                    </div>
+                    <button type="submit" class="btn-primary" id="save-employee-btn">Save Employee</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    
+    <script src="js/api.js"></script>
+    <script src="js/employees.js"></script>
+</body>
+</html>
